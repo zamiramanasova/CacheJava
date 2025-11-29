@@ -4,6 +4,7 @@ import org.interfaces.ICache;
 
 public class LRUCache implements ICache {
     int capacity;
+    String name;
 
     public LRUCache(int capacity) {
         this.capacity = capacity;
@@ -36,5 +37,9 @@ public class LRUCache implements ICache {
     @Override
     public boolean containsKey(String key) {
         return false;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
