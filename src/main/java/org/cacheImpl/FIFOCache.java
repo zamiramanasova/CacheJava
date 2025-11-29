@@ -8,18 +8,17 @@ import java.util.Map;
 
 public class FIFOCache implements ICache {
 
-    private static final int CAPACITY = 10;
+    int capacity;
 
     private final Map<String, Integer> cache = new LinkedHashMap<>();
 
+    public FIFOCache(int capacity) {
+        this.capacity = capacity;
+    }
+
     @Override
     public void put(String key, int value) {
-        if (cache.size() >= CAPACITY) {
-            // удаляем самый старый элемент (FIFO)
-            String firstKey = cache.keySet().iterator().next();
-            cache.remove(firstKey);
-        }
-        cache.put(key, value);
+
     }
 
     @Override
