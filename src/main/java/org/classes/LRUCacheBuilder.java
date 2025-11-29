@@ -11,5 +11,14 @@ public class LRUCacheBuilder {
 
     public LRUCacheBuilder setName(String name) {
         lruCache.setName(name);
+        return this;
+    }
+    public LRUCacheBuilder setServerName(String serverName) {
+        lruCache.setServerName(serverName);
+        return this;
+    }
+
+    public LRUCache build() {
+        return lruCache;
     }
 }

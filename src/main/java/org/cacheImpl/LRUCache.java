@@ -1,10 +1,12 @@
 package org.cacheImpl;
 
+import org.classes.LRUCacheBuilder;
 import org.interfaces.ICache;
 
 public class LRUCache implements ICache {
     int capacity;
     String name;
+    String serverName;
 
     public LRUCache(int capacity) {
         this.capacity = capacity;
@@ -41,5 +43,8 @@ public class LRUCache implements ICache {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public void setServerName(String serverName) {
+        this.serverName = serverName;
     }
 }
