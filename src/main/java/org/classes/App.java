@@ -8,9 +8,21 @@ public class App {
         testFIFO();
         testFIFOwithFactory();
         testLRUwithFactory();
-
+        testLRUCacheBuilder();
     }
 
+    private static void testLRUCacheBuilder() {
+        LRUCacheBuilder lruCacheBuilder = new LRUCacheBuilder(15);
+        ICache lruCache = lruCacheBuilder.setName("LRU custom cache").setServerName("localhost").build();
+        lruCache.put("key1", 1);
+        lruCache.put("key2", 123);
+        System.out.println("Size: " + lruCache.getSize());
+        System.out.println("key2 = " + lruCache.get("key2"));
+
+        lruCache.remove("key1");
+        System.out.println("Size after remove: " + lruCache.getSize());
+
+    }
     private static void testLRUwithFactory() {
         ICache fifoCache = new CacheFactory().createCasheInstance(CacheTypeEnum.LRU, 10);
         fifoCache.put("key1", 1);
